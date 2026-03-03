@@ -16,18 +16,18 @@
       arjs="sourceType: webcam; debugUIEnabled: false; videoTexture: true;"
     >
       <a-light type="ambient" intensity="1.5"></a-light>
-      <a-light type="directional" position="0 10 0" intensity="1"></a-light>
+      <a-light type="directional" position="0 10 5" intensity="1"></a-light>
 
       <a-entity
         gltf-model="url(./giza-pyramids-miniworld.glb)"
-        /* Model ko thoda aur door (28.6708) rakha hai taaki wo aapse chipka na rahe */
+        /* Model ko 28.6708 par rakha (Lagbhag 20m door) taaki wo screen na bhare */
         gps-entity-place="latitude: 28.6708011; longitude: 77.0753384;"
-        /* Scale ko badhakar 5 5 5 kiya hai (agar chota lage toh 10 10 10 karein) */
-        scale="5 5 5"
-        /* Model ka front face hamesha camera ki taraf rahega */
+        /* Scale ko 10 rakha hai taaki wo bada aur saaf dikhe */
+        scale="10 10 10"
+        /* look-at ko 'y-only' kiya hai taaki model sirf left-right ghoome, upar-neeche tila na ho */
         look-at="[gps-camera]"
-        /* Rotation fix: Axis ko adjust kiya hai taaki upar ka part samne dikhe */
-        rotation="0 180 0"
+        /* Rotation fix: Agar model leta hua dikhe toh 90 ko 0 karke dekhein */
+        rotation="0 0 0"
       >
       </a-entity>
 
