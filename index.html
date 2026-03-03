@@ -20,16 +20,23 @@
 
       <a-entity
         gltf-model="url(./giza-pyramids-miniworld.glb)"
-        /* Model ko 28.6708 par rakha (Lagbhag 20m door) taaki wo screen na bhare */
-        gps-entity-place="latitude: 28.6708011; longitude: 77.0753384;"
-        /* Scale ko 10 rakha hai taaki wo bada aur saaf dikhe */
-        scale="10 10 10"
-        /* look-at ko 'y-only' kiya hai taaki model sirf left-right ghoome, upar-neeche tila na ho */
+        /* Model ko 28.6710 par rakha (Lagbhag 40m door) taaki screen cover na ho */
+        gps-entity-place="latitude: 28.6710011; longitude: 77.0753384;"
+        /* Scale ko 2 2 2 rakhein, agar chota lage toh hi badhayein */
+        scale="2 2 2"
+        /* look-at hamesha use karein taaki model gayab na ho */
         look-at="[gps-camera]"
-        /* Rotation fix: Agar model leta hua dikhe toh 90 ko 0 karke dekhein */
+        /* Agar model leta hua dikhe toh 0 0 0 ko -90 0 0 karke dekhein */
         rotation="0 0 0"
       >
       </a-entity>
+
+      <a-box 
+        gps-entity-place="latitude: 28.6710011; longitude: 77.0753384;" 
+        material="color: red" 
+        scale="2 2 2"
+        position="0 5 0">
+      </a-box>
 
       <a-camera 
         gps-camera="simulateLatitude: 28.6706011; simulateLongitude: 77.0753384;" 
