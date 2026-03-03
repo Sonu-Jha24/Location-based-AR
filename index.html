@@ -18,21 +18,21 @@
       <a-light type="ambient" intensity="1.5"></a-light>
       <a-light type="directional" position="0 10 5" intensity="1"></a-light>
 
+      <a-box 
+        gps-entity-place="latitude: 28.6710011; longitude: 77.0753384;" 
+        material="color: red" 
+        scale="2 2 2"
+        position="0 20 0">
+      </a-box>
+
       <a-entity
         gltf-model="url(./giza-pyramids-miniworld.glb)"
         gps-entity-place="latitude: 28.6710011; longitude: 77.0753384;"
-        scale="2 2 2"
+        scale="0.5 0.5 0.5" 
         look-at="[gps-camera]"
         rotation="-90 0 0"
       >
       </a-entity>
-
-      <a-box 
-        gps-entity-place="latitude: 28.6710011; longitude: 77.0753384;" 
-        material="color: red" 
-        scale="1 1 1"
-        position="0 10 0">
-      </a-box>
 
       <a-camera 
         gps-camera="simulateLatitude: 28.6706011; simulateLongitude: 77.0753384;" 
