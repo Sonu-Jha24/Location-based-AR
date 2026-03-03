@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="https://unpkg.com/@c-frame/aframe-physics-system@4.2.3/dist/aframe-physics-system.min.js"></script>
+    <title>A-frame</title>
+    <title>Box texture</title>
+</head>
+<body>
+    <a-scene>
+        !-- Asset Management system 
+        <a-assets>
+    <img id="brick-color" src="Bricks059_2K-JPG_Color.jpg">
+    <img id="brick-normal" src="Bricks059_2K-JPG_NormalGL.jpg">
+</a-assets>
+
+<a-box 
+    src="#brick-color"
+    normal-map="#brick-normal"
+    normal-texture-repeat="2 2"
+    normal-scale="1 1"
+    repeat="2 2"
+    roughness="0.4"
+    width="4" height="4" depth="4"
+    position="-2 1.5 -9"
+    scale="-2 1 1">
+</a-box>
+                    <a-box 
+            width="4"
+            height="4"
+            depth="4"
+            src="Metal046B_2K-JPG_Displacement.jpg"
+            repeat="2 2"
+            normal-map="Metal049A_1K-JPG_Color"
+            normal-texture-repeat="2 2"
+            normal-scale="1 -4"
+            roughness="2"
+            position="2 1.5 -9"
+            scale="-1 1 1"></a-box>
+    </a-scene>
+</body>
+</html>
