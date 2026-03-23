@@ -1,25 +1,35 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>AR.js Final Fix</title>
+    <title>AR.js Final Fullscreen Fix</title>
     
-    <script src="https://unpkg.com/aframe@1.3.0/dist/aframe-min.js"></script>
-    <script src="https://unpkg.com/@ar-js-org/ar.js@3.4.5/aframe/build/aframe-ar-nft.js"></script>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 
     <style>
-        /* Isse white bottom wala issue solve ho jayega */
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
-        #arjs-device-orientation-hint { display: none !important; }
+        /* Ye CSS aapka white area khatam kar dega */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+            left: 0 !important;
+            top: 0 !important;
+        }
     </style>
 </head>
 
 <body>
     <a-scene 
-        embedded 
         vr-mode-ui="enabled: false"
-        arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: true; trackingMethod: best;">
+        arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: true;">
 
         <a-camera 
             gps-new-camera="simulateLatitude: 28.4741; simulateLongitude: 77.4763;" 
@@ -29,18 +39,10 @@
         <a-box 
             gps-new-entity-place="latitude: 28.4741; longitude: 77.4763" 
             color="red" 
-            scale="30 30 30"
+            scale="25 25 25"
             position="0 0 0">
         </a-box>
 
     </a-scene>
-
-    <script>
-        // Check karne ke liye ki script load hui ya nahi
-        window.onload = () => {
-            console.log("AR.js Scene Loaded");
-            alert("Agar ye alert dikh raha hai, toh script load ho gayi hai!");
-        };
-    </script>
 </body>
 </html>
