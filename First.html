@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>AR.js Museum - Noida Location</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
 
@@ -17,16 +18,16 @@
             <a-asset-item id="pottery" src="egyptian_pottery.glb"></a-asset-item>
         </a-assets>
 
-        <a-camera gps-camera rotation-reader look-controls></a-camera>
+        <a-camera gps-camera rotation-reader ></a-camera>
 
-        <a-box color="yellow" scale="2 2 2" 
+        <a-box color="#00AA00" scale="2 2 2" 
             gps-entity-place="latitude: 28.4749; longitude: 77.4764;">
         </a-box>
 
         <a-entity 
             gltf-model="#pottery"
             scale="10 10 10"
-            position="0 0 0"
+            position="0 2 0"
             gps-entity-place="latitude: 28.47498; longitude: 77.47645;">
         </a-entity>
 
