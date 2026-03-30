@@ -15,22 +15,50 @@
             arjs="sourceType: webcam; debugUIEnabled: false;">
 
             <a-assets>
-                <a-asset-item id="pottery" src="egyptian_pottery.glb"></a-asset-item>
+                <a-asset-item id="taj" src="taj_mahal_model.glb"></a-asset-item>
             </a-assets>
 
-            <a-camera gps-camera rotation-reader ></a-camera>
+            <a-camera gps-camera rotation-reader >
+                <a-cursor></a-cursor>
+            </a-camera>
 
-            <a-box color="#00AA00" scale="0.5 0.5 0.5" 
-                gps-entity-place="latitude: 28.624020; longitude: 77.284583;">
-            </a-box>
+            <a-entity gltf-model="./taj_mahal_model.glb" gps-entity-place="latitude: 28.624020; longitude: 77.284583" scale="0.5 0.5 0.5"></a-entity>
+            <a-entity
+  gps-entity-place="latitude:28.624120; longitude: 77.284583"
+  rotation="19.83 -89.22 -0.36" 
+  
+>
+  
+  <a-plane 
+    width="16" 
+    height="10" 
+    color="#0055ff" 
+    material="transparent: true; opacity: 0.5; side: double; metalness: 0.8; roughness: 0.1"
+    position="0 0 0"
+  ></a-plane>
 
-            <a-entity 
-                gltf-model="#pottery"
-                scale=" 0.5 0.5 0.5 "
-                position="0 1 0"
-                gps-entity-place="latitude: 28.624020; longitude: 77.284583;">
-            </a-entity>
+  
+  <a-text 
+    value="THE TAJ MAHAL
+Monument of Eternal Love (1631 CE)
 
+Located in Agra, the Taj Mahal is an exquisite 17th-century white marble mausoleum commissioned by Mughal Emperor Shah Jahan for his beloved wife, Mumtaz Mahal. This UNESCO World Heritage Site is a universal masterpiece, representing the absolute zenith of Mughal architectural ingenuity and devotion." 
+    align="center" 
+    color="#FFFFFF" 
+    width="15" 
+    position="0 0 -0.2"  
+    rotation="0 180 0"   
+    wrap-count="45"
+    font="https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"
+    side="front" 
+  ></a-text>
+</a-entity>
+
+<a-entity 
+    gltf-model="./sound.glb" 
+    sound="src: ./tajaudio.mp3; on: click; volume: 5;" 
+    scale="0.05 0.05 0.05"
+    gps-entity-place="latitude: 28.624150; longitude: 77.284590;"> </a-entity>
         </a-scene>
     </body>
     </html>
