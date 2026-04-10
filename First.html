@@ -12,12 +12,10 @@
 <body style="margin: 0; overflow: hidden;">
     <a-scene 
         vr-mode-ui="enabled: false"
-      arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
+        arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false;">
 
         <a-light type="ambient" color="#ffffff" intensity="0.7"></a-light>
-
         <a-light type="directional" color="#ffffff" intensity="1.5" position="0 20 0"></a-light>
-
 
         <a-assets>
             <a-asset-item id="pottery" src="egyptian_pottery.glb"></a-asset-item>
@@ -25,24 +23,22 @@
             <a-asset-item id="soundIcon" src="sound.glb"></a-asset-item>
         </a-assets>
 
-        <a-camera  <a-camera gps-new-camera="simulateLatitude: 28.621612; simulateLongitude: 77.091903">>
+        <a-camera gps-new-camera="simulateLatitude: 28.621473048578164; simulateLongitude: 77.09200546700103">
             <a-cursor></a-cursor>
         </a-camera>
 
-<a-entity 
-    gltf-model="#pottery" 
-    gps-new-entity-place="latitude: 28.621473048578164; longitude:77.09200546700103; "  
-    scale="0.5 0.5 0.5" 
-    position="0 0 0"> 
-</a-entity>
+        <a-entity 
+            gltf-model="#pottery" 
+            gps-new-entity-place="latitude: 28.6216000; longitude: 77.0920054;"  
+            scale="0.5 0.5 0.5" 
+            position="0 0 0"> 
+        </a-entity>
 
-<a-box color="red" 
-       gps-new-entity-place="latitude: 28.621473048578164; longitude: 77.09200546700103;" 
-       scale="5 5 5">
-</a-box
+        <a-box color="red" 
+            gps-new-entity-place="latitude: 28.6216000; longitude: 77.0920054;" 
+            scale="5 5 5">
+        </a-box>
 
-
-        
     </a-scene>
 </body>
 </html>
