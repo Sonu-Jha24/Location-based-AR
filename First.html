@@ -11,18 +11,19 @@
     <script>
         AFRAME.registerComponent('auto-place', {
             schema: {
-                // Distance set karne ka option (taaki models takrayein nahi)
-                distance: {type: 'number', default: 0.00015} 
+                // latOffset = Aage (North) bhejne ke liye
+                // lonOffset = Left/Right (West/East) bhejne ke liye
+                latOffset: {type: 'number', default: 0},
+                lonOffset: {type: 'number', default: 0}
             },
             init: function() {
                 window.addEventListener('gps-camera-update-position', e => {
-                    // Agar ek baar place ho gaya, toh dubara nahi hilega (gayab hone se rokne ke liye)
                     if(this.isPlaced) return;
                     this.isPlaced = true;
 
-                    // User ki LIVE location li aur usme distance add kar diya
-                    const lat = e.detail.position.latitude + this.data.distance;
-                    const lon = e.detail.position.longitude;
+                    // User ki live location mein offset add kiya
+                    const lat = e.detail.position.latitude + this.data.latOffset;
+                    const lon = e.detail.position.longitude + this.data.lonOffset;
 
                     this.el.setAttribute('gps-new-entity-place', `latitude: ${lat}; longitude: ${lon}`);
                 });
@@ -49,16 +50,16 @@
             <a-cursor></a-cursor>
         </a-camera>
 
-<a-entity 
+        <a-entity 
             gltf-model="#pottery" 
-            auto-place="distance: 0.00005"
+            auto-place="latOffset: 0.00005; lonOffset: 0"
             scale="3 3 3" 
-            position="0 0 0"> 
+            position="0 1 0"> 
         </a-entity>
 
         <a-entity 
             gltf-model="#konark" 
-            auto-place="distance: 0.00012"
+            auto-place="latOffset: 0.00005; lonOffset: -0.00008"
             scale="2 2 2"
             position="0 0 0">
         </a-entity>
