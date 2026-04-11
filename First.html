@@ -50,11 +50,29 @@
             <a-cursor></a-cursor>
         </a-camera>
 
-<a-entity 
-            gltf-model="#pottery" 
-            auto-place="latOffset: 0.00005; lonOffset: 0"
-            scale="0.2 0.2 0.2" 
-            position="0 0 0"> 
+<a-entity auto-place="latOffset: 0.00005; lonOffset: 0">
+            
+            <a-entity 
+                gltf-model="#pottery" 
+                scale="0.2 0.2 0.2" 
+                position="0 0 0"> 
+            </a-entity>
+
+            <a-entity position="0 1.5 2" rotation="0 0 0">
+                
+                <a-plane width="4" height="2.5" color="#0055ff" material="transparent: true; opacity: 0.5; side: double; metalness: 0.8; roughness: 0.1"></a-plane>
+                
+                <a-text 
+                    value="Ancient Egyptian Pottery (c. 126 CE)\n\nSpanning over 5,000 years, was primarily functional, crafted from Nile silt or marl clay for storing, transporting, and cooking food. Key types included Predynastic black-topped redware, everyday utility pots, and decorated faience. Techniques evolved from hand-forming to wheel-thrown, with pottery being essential in both daily life and burial rituals." 
+                    align="center"
+                    color="#FFFFFF" 
+                    width="3.5" 
+                    position="0 0 0.1" 
+                    wrap-count="45" 
+                    font="https://cdn.aframe.io/fonts/DejaVu-sdf.fnt">
+                </a-text>
+
+            </a-entity>
         </a-entity>
 
 <a-entity auto-place="latOffset: 0.00010; lonOffset: -0.00012">
