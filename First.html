@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>AR.js Museum - Auto Location</title>
+    <title>AR.js Museum - Full Tour</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
@@ -11,8 +11,6 @@
     <script>
         AFRAME.registerComponent('auto-place', {
             schema: {
-                // latOffset = Aage (North) bhejne ke liye
-                // lonOffset = Left/Right (West/East) bhejne ke liye
                 latOffset: {type: 'number', default: 0},
                 lonOffset: {type: 'number', default: 0}
             },
@@ -20,11 +18,8 @@
                 window.addEventListener('gps-camera-update-position', e => {
                     if(this.isPlaced) return;
                     this.isPlaced = true;
-
-                    // User ki live location mein offset add kiya
                     const lat = e.detail.position.latitude + this.data.latOffset;
                     const lon = e.detail.position.longitude + this.data.lonOffset;
-
                     this.el.setAttribute('gps-new-entity-place', `latitude: ${lat}; longitude: ${lon}`);
                 });
             }
@@ -43,26 +38,24 @@
         <a-assets>
             <a-asset-item id="pottery" src="egyptian_pottery.glb"></a-asset-item>
             <a-asset-item id="konark" src="konark_sun_temple-compressed.glb"></a-asset-item>
-            <a-asset-item id="soundIcon" src="sound.glb"></a-asset-item>
+            <a-asset-item id="statue" src="qutub_minar-compressed.glb"></a-asset-item>
+            <a-asset-item id="dinosaur" src="red_fort_glory-compressed.glb"></a-asset-item>
+            <a-asset-item id="painting" src="taj_mahal_3d_model.glb"></a-asset-item>
         </a-assets>
 
         <a-camera gps-new-camera="gpsMinDistance: 5" far="100000">
             <a-cursor></a-cursor>
         </a-camera>
 
-        <a-entity 
-            gltf-model="#pottery" 
-            auto-place="latOffset: 0.00005; lonOffset: 0"
-            scale="2 2 2" 
-            position="0 0 0"> 
-        </a-entity>
+        <a-entity gltf-model="#pottery" auto-place="latOffset: 0.00005; lonOffset: 0" scale="3 3 3" position="0 1 0"></a-entity>
 
-        <a-entity 
-            gltf-model="#konark" 
-            auto-place="latOffset: 0.00005; lonOffset: -0.00008"
-            scale="2 2 2"
-            position="0 0 0">
-        </a-entity>
+        <a-entity gltf-model="#konark" auto-place="latOffset: 0.00005; lonOffset: -0.00008" scale="2 2 2" position="0 0 0"></a-entity>
+
+        <a-entity gltf-model="#statue" auto-place="latOffset: 0.00005; lonOffset: 0.00008" scale="5 5 5" position="0 0 0"></a-entity>
+
+        <a-entity gltf-model="#dinosaur" auto-place="latOffset: -0.00008; lonOffset: 0" scale="10 10 10" position="0 0 0"></a-entity>
+
+        <a-entity gltf-model="#painting" auto-place="latOffset: 0; lonOffset: 0.00006" scale="4 4 4" position="0 1.5 0"></a-entity>
 
     </a-scene>
 </body>
