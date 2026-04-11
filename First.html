@@ -57,11 +57,29 @@
             position="0 0 0"> 
         </a-entity>
 
-        <a-entity 
-            gltf-model="#konark" 
-            auto-place="latOffset: 0.00010; lonOffset: -0.00012"
-            scale="3 3 3"
-            position="0 0 0">
+<a-entity auto-place="latOffset: 0.00010; lonOffset: -0.00012">
+            
+            <a-entity 
+                gltf-model="#konark" 
+                scale="3 3 3"
+                position="0 0 0">
+            </a-entity>
+
+            <a-entity position="0 2 4" rotation="0 0 0">
+                
+                <a-plane width="4" height="2.5" color="#0055ff" material="transparent: true; opacity: 0.5; side: double; metalness: 0.8; roughness: 0.1"></a-plane>
+                
+                <a-text 
+                    value="KONARK SUN TEMPLE\nThe Cosmic Chariot (13th Century CE)\n\nLocated in Odisha, the 13th-century Konark Sun Temple is a monumental representation of the sun god Surya's chariot. Built by King Narasimhadeva I, this UNESCO World Heritage Site features 24 elaborately carved stone wheels led by seven horses, showcasing the pinnacle of Kalinga architecture." 
+                    align="center" 
+                    color="#FFFFFF" 
+                    width="3.5" 
+                    position="0 0 0.1" 
+                    wrap-count="45" 
+                    font="https://cdn.aframe.io/fonts/DejaVu-sdf.fnt">
+                </a-text>
+
+            </a-entity>
         </a-entity>
 
     </a-scene>
