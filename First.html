@@ -2,11 +2,33 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>AR.js Museum - Noida Location</title>
+    <title>AR.js Museum - Auto Location</title>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+    <script>
+        AFRAME.registerComponent('auto-place', {
+            schema: {
+                // Distance set karne ka option (taaki models takrayein nahi)
+                distance: {type: 'number', default: 0.00015} 
+            },
+            init: function() {
+                window.addEventListener('gps-camera-update-position', e => {
+                    // Agar ek baar place ho gaya, toh dubara nahi hilega (gayab hone se rokne ke liye)
+                    if(this.isPlaced) return;
+                    this.isPlaced = true;
+
+                    // User ki LIVE location li aur usme distance add kar diya
+                    const lat = e.detail.position.latitude + this.data.distance;
+                    const lon = e.detail.position.longitude;
+
+                    this.el.setAttribute('gps-new-entity-place', `latitude: ${lat}; longitude: ${lon}`);
+                });
+            }
+        });
+    </script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
@@ -29,14 +51,14 @@
 
         <a-entity 
             gltf-model="#pottery" 
-            gps-new-entity-place="latitude: 28.668903; longitude: 77.068525;"  
+            auto-place="distance: 0.00015"
             scale="0.05 0.05 0.05" 
             position="0 0 0"> 
         </a-entity>
 
         <a-entity 
             gltf-model="#konark" 
-            gps-new-entity-place="latitude: 28.669103; longitude: 77.068525;" 
+            auto-place="distance: 0.00030"
             scale="0.06 0.06 0.06"
             position="0 0 0">
         </a-entity>
